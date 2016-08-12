@@ -1,9 +1,7 @@
-<!--<ul class="collection">-->
-    <!--<li class="collection-item avatar" *ngFor="let contact of contacts | async">-->
-        <!--<a [routerLink]="['/contact', contact.id]">-->
-            <!--<img [src]="contact.image" alt="" class="circle">-->
-            <!--<span class="title">{{contact.name}}</span>-->
-        <!--</a>-->
-    <!--</li>-->
-<!--</ul>-->
-test
+<ul class="collection">
+    <li class="collection-item avatar" *ngFor="let pokemon of pokemons">
+        <img [src]="pokemon.img" alt="" class="circle">
+        <span class="title">{{pokemon.name}}</span>
+        <span>{{pokemon.cp}}</span> 
+    </li>
+</ul>

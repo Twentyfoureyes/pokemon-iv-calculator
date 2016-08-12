@@ -1,0 +1,44 @@
+{
+    "id": {
+        "low": -374038655,
+        "high": -1547711481,
+        "unsigned": true
+    },
+    "pokemon_id": 56,
+    "cp": 10,
+    "stamina": 10,
+    "stamina_max": 10,
+    "move_1": 220,
+    "move_2": 123,
+    "deployed_fort_id": null,
+    "owner_name": null,
+    "is_egg": null,
+    "egg_km_walked_target": null,
+    "egg_km_walked_start": null,
+    "origin": null,
+    "height_m": 0.4798615872859955,
+    "weight_kg": 21.09848403930664,
+    "individual_attack": 10,
+    "individual_defense": null,
+    "individual_stamina": 1,
+    "cp_multiplier": 0.09399999678134918,
+    "pokeball": 1,
+    "captured_cell_id": {
+        "low": 0,
+        "high": -2134727424,
+        "unsigned": true
+    },
+    "battles_attacked": null,
+    "battles_defended": null,
+    "egg_incubator_id": null,
+    "creation_time_ms": {
+        "low": 1378274264,
+        "high": 342,
+        "unsigned": true
+    },
+    "num_upgrades": null,
+    "additional_cp_multiplier": null,
+    "favorite": null,
+    "nickname": null,
+    "from_fort": null
+}

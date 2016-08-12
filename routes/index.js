@@ -1,16 +1,28 @@
 var express = require('express');
 var router = express.Router();
 var pokeio = require('pokemon-go-node-api');
+var a = pokeio.Pokeio();
 
-/* GET home page. */
-router.get('/', function(req, res) {
-    res.render('index');
+var location = {
+    type: 'name',
+    name: 'Zelzate'
+};
+
+var username = 'user';
+var password = 'password'
+var provider = 'google';
+
+pokeio.init(username, password, location, provider, function (err) {
+    if (err) throw err;
+
+    console.log('1[i] Current location: ' + pokeio.playerInfo.locationName);
+    console.log('1[i] lat/long/alt: : ' + pokeio.playerInfo.latitude + ' ' + pokeio.playerInfo.longitude + ' ' + pokeio.playerInfo.altitude);
 });
 
-router.get('/get-inventory', function(req, res, next) {
+router.get('/get-inventory', function (req, res) {
     pokeio.GetInventory(function (err, inventory) {
         if (!err) {
-            var cleanedInventory = { player_stats: null, eggs : [], pokemon: [], items: [] };
+            var cleanedInventory = { player_stats: null, eggs: [], pokemon: [], items: [] };
             for (var i = 0; i < inventory.inventory_delta.inventory_items.length; i++) {
                 var inventory_item_data = inventory.inventory_delta.inventory_items[i].inventory_item_data;
 
@@ -21,7 +33,7 @@ router.get('/get-inventory', function(req, res, next) {
                         console.log('  [E] ' + pokemon.egg_km_walked_target + ' Egg');
                         cleanedInventory.eggs.push(pokemon);
                     } else {
-                        var pokedexInfo = api.pokemonlist[parseInt(pokemon.pokemon_id) - 1];
+                        var pokedexInfo = pokeio.pokemonlist[parseInt(pokemon.pokemon_id) - 1];
                         console.log('  [P] ' + pokedexInfo.name + ' - ' + pokemon.cp + ' CP');
                         cleanedInventory.pokemon.push(pokemon);
                     }
@@ -44,17 +56,9 @@ router.get('/get-inventory', function(req, res, next) {
                 }
             }
 
-            // callback(cleanedInventory);
-            res.json(cleanedInventory);
+            res.send(cleanedInventory);
         }
     });
-    // Post.find(function(err, posts){
-    //     if(err){
-    //         return next(err);
-    //     }
-    //
-    //     res.json(posts);
-    // });
 });
 
 module.exports = router;
