@@ -9,4 +9,16 @@ export class PokemonService {
     getInventory() {
         return this.http.get(`${this.apiEndpoint}/get-inventory`);
     }
+
+    login(username, password, provider) {
+        return this.http.post(`${this.apiEndpoint}/login`, {username: username, password: password, provider: provider});
+    }
+
+    setLoggedIn(loggedIn) {
+        (<any>sessionStorage).loggedIn = loggedIn;
+    }
+    
+    getLoggedIn() {
+        return (<any>sessionStorage).loggedIn;
+    }
 }

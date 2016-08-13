@@ -1,0 +1,15 @@
+<div *ngFor="let pokemon of pokemons; let i = index" [class.row]="(i + 1) % 6 === 0">
+    <div class="col-xs-2 form-group">
+        <div>
+            <span>CP</span>
+            <span>{{pokemon.cp}} ({{pokemon.percentMaxCP}}%)</span>
+        </div>
+        <img [src]="pokemon.img" alt="" class="circle">
+    <div>
+        <span class="title">{{pokemon.name}}</span>
+    </div>
+    </div>
+</div>
+<div class="row">
+    <button class="btn btn-primary" (click)="logout()">Logout</button>
+</div>

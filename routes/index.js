@@ -8,15 +8,14 @@ var location = {
     name: 'Zelzate'
 };
 
-var username = 'username';
-var password = 'password'
-var provider = 'google';
+router.post('/login', function(req, res) {
+    pokeio.init(req.param('username'), req.param('password'), location, req.param('provider'), function (err) {
+        if (err) throw err;
 
-pokeio.init(username, password, location, provider, function (err) {
-    if (err) throw err;
-
-    console.log('1[i] Current location: ' + pokeio.playerInfo.locationName);
-    console.log('1[i] lat/long/alt: : ' + pokeio.playerInfo.latitude + ' ' + pokeio.playerInfo.longitude + ' ' + pokeio.playerInfo.altitude);
+        console.log('1[i] Current location: ' + pokeio.playerInfo.locationName);
+        console.log('1[i] lat/long/alt: : ' + pokeio.playerInfo.latitude + ' ' + pokeio.playerInfo.longitude + ' ' + pokeio.playerInfo.altitude);
+        res.send('Succes');
+    });
 });
 
 router.get('/get-inventory', function (req, res) {

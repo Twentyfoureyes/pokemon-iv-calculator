@@ -5,13 +5,13 @@ export class ConvertIV {
     private baseAttack;
     private baseDefense;
 
-    constructor(private id, private stam, private atk, private def, private multiplier){}
+    constructor(private id, private stam, private atk, private def, private multiplier) { }
 
-    convert(){
+    convert() {
         const f = BASE_STATS.find((b) => b.id === this.id);
-            this.baseStamina = f.BaseStamina;
-            this.baseAttack = f.BaseAttack;
-            this.baseDefense = f.BaseDefense;
+        this.baseStamina = f.BaseStamina;
+        this.baseAttack = f.BaseAttack;
+        this.baseDefense = f.BaseDefense;
 
         const stamina = (this.baseStamina + (this.stam || 0)) * this.multiplier;
         const attack = (this.baseAttack + (this.atk || 0)) * this.multiplier;
@@ -27,8 +27,8 @@ export class CalculateCP {
     private individual_stamina;
     private cp_multiplier;
     private additional_cp_multiplier;
-    
-    constructor(private info){
+
+    constructor(private info) {
         this.pokemon_id = info.pokemon_id;
         this.individual_attack = info.individual_attack;
         this.individual_defense = info.individual_defense;
