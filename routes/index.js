@@ -8,7 +8,7 @@ var location = {
     name: 'Zelzate'
 };
 
-var username = 'user';
+var username = 'username';
 var password = 'password'
 var provider = 'google';
 

@@ -20,6 +20,6 @@ export class PokemonListComponent implements OnInit {
     }
 
     convertToPokemon(pokemons) {
-        return pokemons.pokemon.map(p => new Pokemon(p.pokemon_id, p.cp, p.individual_stamina, p.individual_defense, p.individual_attack));
+        return pokemons.pokemon.map(p => new Pokemon(p.pokemon_id, p.cp, p.individual_stamina, p.individual_defense, p.individual_attack, p.cp_multiplier, p.additional_cp_multiplier));
     }
 }

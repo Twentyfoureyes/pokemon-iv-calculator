@@ -1,7 +1,16 @@
-<ul class="collection">
-    <li class="collection-item avatar" *ngFor="let pokemon of pokemons">
+<div *ngFor="let pokemon of pokemons; let i = index" ng-class="{row:i % 3 === 0}">
+    <div class="col-xs-2 form-group">
+        <div>
+            <span>CP</span>
+            <span>{{pokemon.cp}} ({{pokemon.percentMaxCP}}%)</span>
+        </div>
         <img [src]="pokemon.img" alt="" class="circle">
         <span class="title">{{pokemon.name}}</span>
-        <span>{{pokemon.cp}}</span> 
-    </li>
-</ul>
+        <div>
+            <span>IV</span>
+            <span>
+                {{pokemon.individual_attack || 0}} / {{pokemon.individual_defense || 0}} / {{pokemon.individual_stamina || 0}} ({{pokemon.percentMaxIV}}%)
+            </span>
+        </div>
+    </div>
+</div>
