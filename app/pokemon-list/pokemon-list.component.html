@@ -1,15 +1,32 @@
-<div *ngFor="let pokemon of pokemons; let i = index" [class.row]="(i + 1) % 6 === 0">
-    <div class="col-xs-2 form-group">
-        <div>
-            <span>CP</span>
-            <span>{{pokemon.cp}} ({{pokemon.percentMaxCP}}%)</span>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6">
+            <input [(ngModel)]="nameFilter" class="form-control" placeholder="search name" />
         </div>
-        <img [src]="pokemon.img" alt="" class="circle">
-    <div>
-        <span class="title">{{pokemon.name}}</span>
+        <div class="col-xs-2">
+            <button type="button" (click)="sortFilter='percentMaxCp'" class="btn btn-primary">Order by IV %</button>
+        </div>
+        <div class="col-xs-2">
+            <button type="button" (click)="sortFilter='pokemon_id'" class="btn btn-primary">Order by id</button>
+        </div>
+        <div class="col-xs-2">
+            <button type="button" (click)="sortFilter='cp'" class="btn btn-primary">Order by CP</button>
+        </div>
     </div>
+    <div *ngFor="let pokemon of pokemons | pokemonFilter: [nameFilter, sortFilter]">
+        <div class="col-xs-2 form-group">
+            <div>
+                <span>CP</span>
+                <span>{{pokemon.cp}} ({{pokemon.percentMaxCP}}%)</span>
+                <span>{{pokemon.individual_stamina}}/{{pokemon.individual_defense}}/{{pokemon.individual_attack}}</span>
+            </div>
+            <img [src]="pokemon.img" alt="" class="circle">
+            <div>
+                <span class="title">{{pokemon.name}}</span>
+            </div>
+        </div>
     </div>
-</div>
-<div class="row">
-    <button class="btn btn-primary" (click)="logout()">Logout</button>
+    <div class="row">
+        <button class="btn btn-primary" (click)="logout()">Logout</button>
+    </div>
 </div>
