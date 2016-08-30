@@ -12,3 +12,7 @@ This project was mostly for having fun, using some expressjs for the backend and
 
 ## How to use
 `npm start`
+
+/!\ WARNING /!\
+
+This tool uses inofficial API calls to gather the needed information, so there is a possibility to be banned for using it. I'm not responsible for any damage to your account. Use the tool at your own risk.
